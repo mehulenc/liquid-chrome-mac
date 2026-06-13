@@ -2,7 +2,7 @@
 
 A highly specific crossover configuration between **Frutiger Aero** (eco-utopian, high-gloss, aquatic, glassmorphism) and **Gen X Soft Club** (Y2K techno translucency, ambient wireframes, sterile minimalism, and technical typography) designed for macOS.
 
-This repository contains configurations for the **Kitty Terminal**, a custom **Oh-My-Zsh theme**, and **Übersicht** desktop widgets.
+This repository contains configurations for the **Kitty Terminal**, a custom **Oh-My-Zsh theme**, **Neovim**, and **Übersicht** desktop widgets.
 
 ---
 
@@ -23,6 +23,8 @@ This repository contains configurations for the **Kitty Terminal**, a custom **O
 .
 ├── kitty/
 │   └── kitty.conf               # Kitty configuration (Translucency, blur, and 16 ANSI color mappings)
+├── nvim/
+│   └── init.lua                 # Neovim configuration (Transparent background, syntax highlights, native statusline)
 ├── zsh/
 │   └── liquid-chrome.zsh-theme  # Custom Zsh branch & command status theme for Oh-My-Zsh
 ├── widgets/
@@ -84,3 +86,20 @@ We recommend using the open-source **Ice** application to style your menu bar:
 2.  Enable **Menu Bar Shape**, select **Rounded Capsule**, and set the corner radius to `10px` or `12px`.
 3.  Set the **Border** color to white (`#FFFFFF`) at `25%` opacity for the silver metallic edge.
 4.  Enable **Menu Bar Tinting**, set to Solid, and enter `#0B1021` (Deep Ambient Blue) at `45%` opacity.
+
+---
+
+## ✍️ Neovim Custom Config
+
+Our custom Neovim configuration (`nvim/init.lua`) is tailored specifically to integrate seamlessly with the Kitty terminal:
+
+*   **Transparency Preservation:** Normal background color is forced to `none` (`Normal`, `NormalNC`, `NormalFloat`, and `FloatBorder`), allowing Kitty's background transparency and macOS backdrop blur to show through without editor background styling boxiness.
+*   **Aesthetic Palette Mapping:**
+    *   **Keywords / Statements / Operators / Types / Functions:** Styled in Aquatic Cyan (`#00FFFF`, bold where applicable).
+    *   **Constants / Strings / Numbers / Booleans:** Styled in Bioluminescent Lime Green (`#39FF14`).
+    *   **Comments / Line Numbers / Wireframe Elements:** Dimmed to Muted Silver-Blue / Gray (`#505A70`).
+*   **Custom Statusline:** Built using pure native Lua without heavy dependency plugins. It features clean blocks for:
+    *   Active Vim Mode (e.g., `NORMAL`, `INSERT`, `VISUAL`) in high-contrast cyan.
+    *   Current File path and modified flags.
+    *   File type, line numbers, columns, and percentage completion.
+
