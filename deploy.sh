@@ -116,6 +116,9 @@ else
   log_warn "Oh-My-Zsh is not installed (~/.oh-my-zsh not found). Skipping Zsh theme link."
 fi
 
+# 5. Neovim configuration
+deploy_link "nvim/init.lua" "${HOME}/.config/nvim/init.lua"
+
 echo -e "${CYAN}======================================================================${NC}"
 log_success "Deployment process completed!"
 echo -e "You can reload services to apply all changes:"
