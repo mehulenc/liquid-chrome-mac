@@ -58,13 +58,7 @@ Whenever generating HTML/CSS (e.g., for Übersicht widgets) or equivalent UI con
 *   Hide window decorations if possible, or use standard macOS traffic lights but with custom background colors.
 *   Map the 16 ANSI colors to the Liquid Chrome palette (favoring cyan, lime, white, and deep blues).
 
-### B. SketchyBar (`sketchybarrc`)
-*   Create a "floating capsule" layout rather than a solid bar extending edge-to-edge.
-*   Use background colors with alpha channels (e.g., `0x770B1021`).
-*   Apply corner radii (e.g., `corner_radius=8`).
-*   Use SF Symbols for icons (`font="SF Pro:Bold:14.0"`).
-
-### C. Übersicht Widgets (HTML/CSS)
+### B. Übersicht Widgets (HTML/CSS)
 *   Ensure absolute positioning.
 *   Keep animations fluid and hardware-accelerated (`transform: translateZ(0)`).
 *   Avoid heavy DOM structures; rely on the CSS rules defined above.

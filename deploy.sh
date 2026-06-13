@@ -4,7 +4,7 @@
 # Liquid Chrome - Configuration Deployment Script
 # ==============================================================================
 # Automatically symlinks the Liquid Chrome configuration files (Kitty,
-# SketchyBar, Uebersicht, Zsh) from this workspace to their standard macOS
+# Uebersicht, Zsh, Neovim) from this workspace to their standard macOS
 # configuration directories with robust error handling and backups.
 # ==============================================================================
 
@@ -93,14 +93,7 @@ echo -e "${CYAN}================================================================
 # 1. Kitty Terminal configuration
 deploy_link "kitty/kitty.conf" "${HOME}/.config/kitty/kitty.conf"
 
-# 2. SketchyBar configuration (Optional)
-if [[ -f "${WORKSPACE_DIR}/sketchybarrc" ]]; then
-  deploy_link "sketchybarrc" "${HOME}/.config/sketchybar/sketchybarrc"
-else
-  log_warn "sketchybarrc not found in workspace. Skipping SketchyBar deployment."
-fi
-
-# 3. Übersicht Widgets
+# 2. Übersicht Widgets
 # Clock Widget
 deploy_link "widgets/clock/index.coffee" "${HOME}/Library/Application Support/Übersicht/widgets/liquid-chrome-clock/index.coffee"
 # Stats Widget
@@ -109,21 +102,20 @@ deploy_link "widgets/stats/index.coffee" "${HOME}/Library/Application Support/U�
 deploy_link "widgets/nowplaying/index.coffee" "${HOME}/Library/Application Support/Übersicht/widgets/liquid-chrome-nowplaying/index.coffee"
 deploy_link "widgets/nowplaying/get_music_info.applescript" "${HOME}/Library/Application Support/Übersicht/widgets/liquid-chrome-nowplaying/get_music_info.applescript"
 
-# 4. Oh-My-Zsh Custom Theme (optional/if Oh-My-Zsh is installed)
+# 3. Oh-My-Zsh Custom Theme (optional/if Oh-My-Zsh is installed)
 if [[ -d "${HOME}/.oh-my-zsh" ]]; then
   deploy_link "zsh/liquid-chrome.zsh-theme" "${HOME}/.oh-my-zsh/custom/themes/liquid-chrome.zsh-theme"
 else
   log_warn "Oh-My-Zsh is not installed (~/.oh-my-zsh not found). Skipping Zsh theme link."
 fi
 
-# 5. Neovim configuration
+# 4. Neovim configuration
 deploy_link "nvim/init.lua" "${HOME}/.config/nvim/init.lua"
 
 echo -e "${CYAN}======================================================================${NC}"
 log_success "Deployment process completed!"
 echo -e "You can reload services to apply all changes:"
 echo -e "  - Kitty: Control + Command + ,"
-echo -e "  - SketchyBar: brew services restart sketchybar (or killall sketchybar)"
 echo -e "  - Uebersicht: Refresh All Widgets via menu bar"
 echo -e "  - Zsh: source ~/.zshrc"
 echo -e "${CYAN}======================================================================${NC}"
